@@ -17,7 +17,7 @@ public class CLI {
      * Este metodo inicia la aplicación
      */
     public static void launchApp(){
-        //procesos.login();
+        procesos.login();
         Scanner scanner = new Scanner(System.in);
         int choice = showMenu();
 
