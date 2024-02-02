@@ -15,7 +15,7 @@ public class CLI {
     }
 
     public static void launchApp(){
-        //Procesos.login();
+        Procesos.login();
         eleccion = showMenu();
 
         while(eleccion <= 4){
