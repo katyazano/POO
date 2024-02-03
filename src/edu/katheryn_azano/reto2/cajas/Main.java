@@ -1,6 +1,6 @@
 package edu.katheryn_azano.reto2.cajas;
 
-import edu.katheryn_azano.reto2.promedios.ui.CLI;
+import edu.katheryn_azano.reto2.cajas.ui.CLI;
 
 public class Main {
     public static void main(String[] args) {
