@@ -4,7 +4,6 @@ import edu.katheryn_azano.reto3.diccionario.process.Diccionario;
 import java.util.Scanner;
 
 public class CLI {
-    static int choice = 0;
     public static Scanner scanner = new Scanner(System.in);
 
     public static int showMenu(){
@@ -14,7 +13,7 @@ public class CLI {
     }
 
     public static void launchApp(Diccionario diccionario){
-        choice = showMenu();
+        int choice = showMenu();
         while (choice <= 4){
             switch (choice){
                 case 1:
