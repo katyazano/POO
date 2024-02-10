@@ -4,6 +4,7 @@ import edu.katheryn_azano.reto3.numeros.ui.CLI;
 
 public class Main {
     public static void main(String[] args){
+        // Se crea una instancia de la interfaz de línea de comandos (CLI).
         CLI ob = new CLI();
         try{
             ob.launchApp();

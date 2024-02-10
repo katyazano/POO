@@ -1,11 +1,15 @@
 package edu.katheryn_azano.reto3.numeros.process;
 
-import edu.katheryn_azano.reto3.numeros.ui.CLI;
-
 import java.util.Arrays;
 import java.util.Random;
 
 public class CalculadoraPares {
+    /**
+     * Genera una matriz aleatoria con valores entre 1 y 100.
+     * @param fila El número de filas de la matriz.
+     * @param columna El número de columnas de la matriz.
+     * @return La matriz generada aleatoriamente.
+     */
     public int[][] array(int fila, int columna){
         Random random = new Random();
         int numeroAleatorio = 0;
@@ -22,6 +26,10 @@ public class CalculadoraPares {
         }return tabla;
     }
 
+    /**
+     * Calcula la cantidad de números pares e impares en cada fila y columna de la matriz.
+     * @param tabla La matriz en la que se realizará el conteo.
+     */
     public void paresImpares(int[][] tabla){
         for (int fila=0; fila<(tabla.length); fila++) {
             int pares = 0;
@@ -51,6 +59,11 @@ public class CalculadoraPares {
         }
     }
 
+    /**
+     * Calcula la suma total de los valores en la matriz.
+     * @param tabla La matriz de la que se calculará la suma.
+     * @return La suma total de los valores en la matriz.
+     */
     public int suma(int[][] tabla){
         int total = 0;
         for (int j = 0; j < tabla.length; j++) {
