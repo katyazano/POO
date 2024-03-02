@@ -1,17 +1,19 @@
 package edu.katheryn_azano.reto5.ejercicio1;
 
 public class Propiedad {
-    private String dirección;
-    private float coordenadas;
-    private String estadoPropiedad;
-    private String tipoPropiedad;
 
-    public String getDirección() {
-        return dirección;
+    private String direccion;
+    private float coordenadas;
+    private String estadoDeLaPropiedad; // renta o venta
+    private String tipoDePropiedad; // departamento o casa
+    private double precio;
+
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setDirección(String dirección) {
-        this.dirección = dirección;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public float getCoordenadas() {
@@ -22,19 +24,27 @@ public class Propiedad {
         this.coordenadas = coordenadas;
     }
 
-    public String getEstadoPropiedad() {
-        return estadoPropiedad;
+    public String getEstadoDeLaPropiedad() {
+        return estadoDeLaPropiedad;
     }
 
-    public void setEstadoPropiedad(String estadoPropiedad) {
-        this.estadoPropiedad = estadoPropiedad;
+    public void setEstadoDeLaPropiedad(String estadoDeLaPropiedad) {
+        this.estadoDeLaPropiedad = estadoDeLaPropiedad;
     }
 
-    public String getTipoPropiedad() {
-        return tipoPropiedad;
+    public String getTipoDePropiedad() {
+        return tipoDePropiedad;
     }
 
-    public void setTipoPropiedad(String tipoPropiedad) {
-        this.tipoPropiedad = tipoPropiedad;
+    public void setTipoDePropiedad(String tipoDePropiedad) {
+        this.tipoDePropiedad = tipoDePropiedad;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 }
