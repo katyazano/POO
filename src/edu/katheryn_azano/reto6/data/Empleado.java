@@ -5,30 +5,39 @@ public class Empleado {
     private int horasTrabajadas;
     private int horasExtra;
     private String telefono;
-    private String fechaNacimiento;
+    private String edad;
     private Categoria categoria;
 
-    public Empleado(String nombre, int horasTrabajadas, int horasExtra, String telefono, String fechaNacimiento, Categoria categoria) {
+    /**Constructor de la clase Empleado
+     * @param nombre
+     * @param horasTrabajadas
+     * @param horasExtra
+     * @param telefono
+     * @param edad
+     * @param categoria
+     */
+    public Empleado(String nombre, int horasTrabajadas, int horasExtra, String telefono, String edad, Categoria categoria) {
         this.nombre = nombre;
         this.horasTrabajadas = horasTrabajadas;
         this.horasExtra = horasExtra;
         this.telefono = telefono;
-        this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
         this.categoria = categoria;
     }
 
+    /**
+     * Método toString para mostrar información del empleado
+     * @return
+     */
     @Override
     public String toString() {
-        return "Empleado{" +
-                "nombreCompleto='" + nombre + '\'' +
-                ", horasTrabajadas=" + horasTrabajadas +
-                ", horasExtrasTrabajadas=" + horasExtra +
-                ", telefono='" + telefono + '\'' +
-                ", fechaNacimiento='" + fechaNacimiento + '\'' +
-                ", categoria=" + this.categoria.getNombre() +
-                '}';
+        return "\n" + "nombreCompleto: " + nombre  + " - categoria: " +
+                this.categoria.getNombre() +
+                "\nhorasTrabajadas:" + horasTrabajadas +
+                "\nhorasExtrasTrabajadas: " + horasExtra;
     }
 
+    // Métodos getter y setter para el nombre
     public String getNombreCompleto() {
         return nombre;
     }
@@ -37,6 +46,7 @@ public class Empleado {
         this.nombre = nombreCompleto;
     }
 
+    // Métodos getter y setter para las horas trabajadas
     public int getHorasTrabajadas() {
         return horasTrabajadas;
     }
@@ -45,6 +55,7 @@ public class Empleado {
         this.horasTrabajadas = horasTrabajadas;
     }
 
+    // Métodos getter y setter para las horas extra trabajadas
     public int getHorasExtrasTrabajadas() {
         return horasExtra;
     }
@@ -53,6 +64,7 @@ public class Empleado {
         this.horasExtra = horasExtrasTrabajadas;
     }
 
+    // Métodos getter y setter para el teléfono
     public String getTelefono() {
         return telefono;
     }
@@ -61,14 +73,16 @@ public class Empleado {
         this.telefono = telefono;
     }
 
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
+    // Métodos getter y setter para la edad
+    public String getEdad() {
+        return edad;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setEdad(String edad) {
+        this.edad = edad;
     }
 
+    // Métodos getter y setter para la categoría
     public Categoria getCategoria() {
         return categoria;
     }

@@ -6,7 +6,9 @@ import edu.katheryn_azano.reto6.data.Empleado;
 import java.util.ArrayList;
 
 public class CalculadoraSueldos {
-
+    /**
+     * Método para calcular el total de la nómina y generar un reporte final
+     * */
     public static void calcularTotalSueldos(ArrayList<Empleado> empleados, int cantidadEmpleados) {
         double totalNomina = 0;
         double totalSueldoNormal = 0;
@@ -36,20 +38,18 @@ public class CalculadoraSueldos {
 
         int totalPersonasSinHorasExtras = empleados.size() - totalPersonasHorasExtras[0];
 
-        mostrarReporteFinal(totalNomina, totalSueldoNormal,
-                totalHorasExtras, totalPersonasHorasExtras[0], totalPersonasSinHorasExtras, totalHorasLaboradas);
+        mostrarReporteFinal(totalNomina, totalSueldoNormal, totalHorasExtras, totalPersonasHorasExtras[0], totalPersonasSinHorasExtras, totalHorasLaboradas);
     }
 
-    public static int convertirEdad{
-
-    }
-
+    /**
+     * Método para mostrar el reporte final
+     * */
     public static void mostrarReporteFinal(double totalNomina, double totalSueldoNormal, double totalHorasExtras, int totalPersonasHorasExtras, int totalPersonasSinHorasExtras, double totalHorasLaboradas) {
-        System.out.println("Total de la nómina: " + totalNomina);
+        System.out.println("\nTotal de la nómina: " + totalNomina);
         System.out.println("Total de sueldos normales: " + totalSueldoNormal);
         System.out.println("Total de horas extras pagadas: " + totalHorasExtras);
+        System.out.println("Total de horas laboradas: " + totalHorasLaboradas);
         System.out.println("Total de personas con horas extras: " + totalPersonasHorasExtras);
         System.out.println("Total de personas sin horas extras: " + totalPersonasSinHorasExtras);
-        System.out.println("Total de horas laboradas: " + totalHorasLaboradas);
     }
 }

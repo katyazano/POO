@@ -1,11 +1,12 @@
 package edu.katheryn_azano.reto6.data;
 
 public class Categoria {
-    private String nombre;
-    private String clave;
-    private double sueldoBase;
-    private double pagoPorHoraExtra;
+    private String nombre; // Nombre de la categoría
+    private String clave; // Clave de la categoría
+    private double sueldoBase; // Sueldo base de la categoría
+    private double pagoPorHoraExtra; // Pago por hora extra de la categoría
 
+    // Constructor de la clase Categoria
     public Categoria(String nombre, String clave, double sueldoBase, double pagoPorHoraExtra) {
         this.nombre = nombre;
         this.clave = clave;
@@ -13,6 +14,7 @@ public class Categoria {
         this.pagoPorHoraExtra = pagoPorHoraExtra;
     }
 
+    // Métodos getter y setter para el nombre de la categoría
     public String getNombre() {
         return nombre;
     }
@@ -21,14 +23,7 @@ public class Categoria {
         this.nombre = nombre;
     }
 
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
+    // Métodos getter y setter para el sueldo base de la categoría
     public double getSueldoBase() {
         return sueldoBase;
     }
@@ -37,6 +32,7 @@ public class Categoria {
         this.sueldoBase = sueldoBase;
     }
 
+    // Métodos getter y setter para el pago por hora extra de la categoría
     public double getPagoPorHoraExtra() {
         return pagoPorHoraExtra;
     }
