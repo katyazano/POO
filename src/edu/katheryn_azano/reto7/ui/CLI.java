@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class CLI {
     private static Scanner scanner = new Scanner(System.in);
-    private static double x = 0;
-    private static double y = 0;
+    private static double x = 0, y = 0;
     private static Idiomas idiomas = new Espanol();
 
+    // Método para mostrar el menú de selección de idioma
     public static void showMenu() {
         System.out.println("Seleccione un idioma / Select a language" + "\nA. Español (Spanish) \nB. Inglés (English)");
         String idioma = scanner.nextLine();
@@ -33,60 +33,57 @@ public class CLI {
         y = scanner.nextDouble();
     }
 
+    // Método para imprimir el resultado de la operación aritmética
+    public static void printResult(OperacionAritmetica operacion, double x, double y ){
+        System.out.println(idiomas.RESULTADO_UNO + operacion.getClass().getSimpleName() + idiomas.RESULTADO_DOS
+                + operacion.calcular(x,y));
+    }
+
     // Método público para lanzar la aplicación de la calculadora
     public static void launchApp() {
         showMenu();
         int choice = scanner.nextInt();
-        double resultado;
         OperacionAritmetica operacion = null;
         switch (choice) {
             case 1:
                 getData(); // Obtiene los datos de entrada
-                OperacionAritmetica suma = new Suma(); // Crea una instancia de Suma
-                resultado = suma.calcular(x, y); // Calcula la suma
-                System.out.println("El resultado de la suma es: " + idiomas.FINAL);
+                operacion = new Suma(); // Crea una instancia de Suma
+                printResult(operacion, x, y); // Calcula la suma
                 break;
             case 2:
                 getData(); // Obtiene los datos de entrada
-                OperacionAritmetica resta = new Resta(); // Crea una instancia de Resta
-                resultado = resta.calcular(x, y); // Calcula la resta
-                System.out.println("El resultado de la resta es: " + idiomas.FINAL);
+                operacion = new Resta(); // Crea una instancia de Resta
+                printResult(operacion, x, y); // Calcula la resta
                 break;
             case 3:
                 getData(); // Obtiene los datos de entrada
-                OperacionAritmetica multiplicacion = new Multiplicacion(); // Crea una instancia de Multiplicacion
-                resultado = multiplicacion.calcular(x, y); // Calcula la multiplicacion
-                System.out.println("El resultado de la multiplicacion es: " + idiomas.FINAL);
+                operacion = new Multiplicacion(); // Crea una instancia de Multiplicacion
+                printResult(operacion, x, y); // Calcula la multiplicacion
                 break;
             case 4:
                 getData(); // Obtiene los datos de entrada
-                OperacionAritmetica division = new Division(); // Crea una instancia de Division
-                resultado = division.calcular(x, y); // Calcula la division
-                System.out.println("El resultado de la division es: " + idiomas.FINAL);
+                operacion = new Division(); // Crea una instancia de Division
+                printResult(operacion, x, y); // Calcula la division
                 break;
             case 5:
                 getData(); // Obtiene los datos de entrada
-                OperacionAritmetica modulo = new Modulo(); // Crea una instancia de Modulo
-                resultado = modulo.calcular(x, y); // Calcula el modulo
-                System.out.println("El resultado del modulo es: " + idiomas.FINAL);
+                operacion = new Modulo(); // Crea una instancia de Modulo
+                printResult(operacion, x, y); // Calcula el modulo
                 break;
             case 6:
                 getData(); // Obtiene los datos de entrada
-                OperacionAritmetica potencia = new Potencia(); // Crea una instancia de Potencia
-                resultado = potencia.calcular(x, y); // Calcula la potencia
-                System.out.println("El resultado de la potencia es: " + idiomas.FINAL);
+                operacion = new Potencia(); // Crea una instancia de Potencia
+                printResult(operacion, x, y); // Calcula la potencia
                 break;
             case 7:
                 getData(); // Obtiene los datos de entrada
-                OperacionAritmetica logaritmo = new Logaritmo(); // Crea una instancia de Logaritmo
-                resultado = logaritmo.calcular(x, y); // Calcula el logaritmo
-                System.out.println("El resultado del logaritmo es: " + idiomas.FINAL);
+                operacion = new Logaritmo(); // Crea una instancia de Logaritmo
+                printResult(operacion, x, y); // Calcula el logaritmo
                 break;
             case 8:
                 getData(); // Obtiene los datos de entrada
-                OperacionAritmetica raiz = new Raiz(); // Crea una instancia de Raiz
-                resultado = raiz.calcular(x, y); // Calcula la raiz
-                System.out.println(idiomas.RESULTADO_UNO + operacion.getClass().getSimpleName() + idiomas.RESULTADO_DOS + resultado);
+                operacion = new Raiz(); // Crea una instancia de Raiz
+                printResult(operacion, x, y); // Calcula la raiz
                 break;
             default:
                 System.out.println(idiomas.OPCION_INVALIDA + idiomas.FINAL);

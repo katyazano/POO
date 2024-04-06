@@ -1,6 +1,7 @@
 package edu.katheryn_azano.reto7.ui;
 
 public abstract class Idiomas {
+    // Variables para los mensajes en diferentes idiomas
     public String MENU;
     public String INGRESAR_PRIMERNUMERO;
     public String INGRESAR_SEGUNDONUMERO;
