@@ -7,19 +7,23 @@ import java.util.Scanner;
 public class CLI {
     private static final Scanner scanner = new Scanner(System.in);
     private static String libroSeleccionado;
-    public static void showMenu(){
-        System.out.println("Escoga un idioma (Choose a language:): ");
+
+    // Método para mostrar el menú de selección de idioma
+    public static void showMenu() {
+        System.out.println("Escoga un idioma (Choose a language): ");
         System.out.println("A. Español (Spanish)");
         System.out.println("B. Ingles (English)");
         String idiomaSeleccionado = scanner.nextLine();
-        Idiomas.getInstance(idiomaSeleccionado);
-        System.out.println(Idiomas.MENU);
-        libroSeleccionado = scanner.nextLine();
+        Idiomas.getInstance(idiomaSeleccionado); // Instancia el idioma seleccionado
+        System.out.println(Idiomas.MENU); // Muestra el menú principal
+        libroSeleccionado = scanner.nextLine(); // Captura la selección de libro
     }
 
-    public static void launchApp(){
-        showMenu();
-        switch (libroSeleccionado){
+    // Método para lanzar la aplicación
+    public static void launchApp() {
+        showMenu(); // Muestra el menú inicial
+        // Switch para seleccionar el libro y mostrar su título
+        switch (libroSeleccionado) {
             case "1":
                 System.out.println(Idiomas.LIBRO_SELECCIONADO + Idiomas.GANSO_DE_ORO);
                 System.out.println(Idiomas.LISTA_PALABRAS);
@@ -43,6 +47,6 @@ public class CLI {
             default:
                 System.out.println(Idiomas.ERROR_LIBRO);
         }
-        AdministradorDePalabras.setLibrosDisponibles(libroSeleccionado);
+        AdministradorDePalabras.setLibrosDisponibles(libroSeleccionado); // Establece los libros disponibles
     }
 }
