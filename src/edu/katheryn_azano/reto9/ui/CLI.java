@@ -12,7 +12,7 @@ public class CLI {
         System.out.println("A. Español (Spanish)");
         System.out.println("B. Ingles (English)");
         String idiomaSeleccionado = scanner.nextLine();
-        Idiomas idiomas = Idiomas.getInstance(idiomaSeleccionado);
+        Idiomas.getInstance(idiomaSeleccionado);
         System.out.println(Idiomas.MENU);
         libroSeleccionado = scanner.nextLine();
     }
