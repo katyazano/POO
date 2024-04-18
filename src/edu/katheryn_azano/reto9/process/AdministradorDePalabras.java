@@ -20,11 +20,11 @@ public class AdministradorDePalabras {
      */
     public static void setLibrosDisponibles(String libroSeleccionado) {
         // Asigna las rutas de archivo de los libros disponibles al mapa
-        librosDisponibles.put("1", "edu/katheryn_azano/reto9/resources/ElGansoDeOro.txt");
-        librosDisponibles.put("2", "edu/katheryn_azano/reto9/resources/ElGatoConBotas.txt");
-        librosDisponibles.put("3", "edu/katheryn_azano/reto9/resources/LosTresCerditos.txt");
-        librosDisponibles.put("4", "edu/katheryn_azano/reto9/resources/Pinocho.txt");
-        librosDisponibles.put("5", "edu/katheryn_azano/reto9/resources/RicitosDeOro.txt");
+        librosDisponibles.put("1", "src/edu/katheryn_azano/reto9/resources/ElGansoDeOro.txt");
+        librosDisponibles.put("2", "src/edu/katheryn_azano/reto9/resources/ElGatoConBotas.txt");
+        librosDisponibles.put("3", "src/edu/katheryn_azano/reto9/resources/LosTresCerditos.txt");
+        librosDisponibles.put("4", "src/edu/katheryn_azano/reto9/resources/Pinocho.txt");
+        librosDisponibles.put("5", "src/edu/katheryn_azano/reto9/resources/RicitosDeOro.txt");
 
         // Obtiene la ruta de archivo del libro seleccionado
         String filePath = librosDisponibles.get(libroSeleccionado);
