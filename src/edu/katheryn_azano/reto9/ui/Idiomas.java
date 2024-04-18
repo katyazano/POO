@@ -13,13 +13,17 @@ public class Idiomas {
     public static String RICITOS;
     public static String ERROR_LIBRO;
 
-    // Método estático para obtener la instancia de los textos en un idioma específico
+    /**
+     * Método estático para obtener la instancia de los textos en un idioma específico
+     * @param idioma
+     * @return
+     */
     public static Idiomas getInstance(String idioma) {
         // Obtiene la instancia del idioma según el parámetro recibido
         Textos opcion = Textos.valueOf(idioma);
         switch (opcion) {
             // Español
-            case Textos.A, a:
+            case Textos.Español, Spanish:
                 // Define los textos en español
                 MENU = "Favor de escoger un libro: \n1.El ganso de oro \n2.El gato con botas \n3.Los 3 cerditos \n4.Pinocho \n5.Ricitos de oro";
                 LIBRO_SELECCIONADO = "El libro seleccionado fue: ";
@@ -33,7 +37,7 @@ public class Idiomas {
                 ERROR_LIBRO = "Libro no disponible";
                 break;
             // Ingles
-            case Textos.B, b:
+            case Textos.Ingles, English:
                 // Define los textos en inglés
                 MENU = "Please choose a book: \n1.Golden goose \n2.Puss in Boots \n3.The 3 little pigs \n4.Pinocchio \n5.Goldilocks";
                 LIBRO_SELECCIONADO = "The selected book is: ";
@@ -57,5 +61,5 @@ public class Idiomas {
 
 // Enumeración para representar los textos disponibles
 enum Textos {
-    A, B, a, b
+    Español, Spanish, Ingles, English
 }

@@ -5,8 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Clase donde se extraen las palabras del cuento
+ */
 public class Limpiador {
-    // Método para obtener las palabras de un archivo de texto y limpiarlas
+    /**
+     *  Método para obtener las palabras de un archivo de texto y limpiarlas
+     */
     public static List<String> obtenerPalabras(String filePath) {
         List<String> palabras = new ArrayList<>();
         try {

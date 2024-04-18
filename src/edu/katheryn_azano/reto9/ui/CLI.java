@@ -8,18 +8,22 @@ public class CLI {
     private static final Scanner scanner = new Scanner(System.in);
     private static String libroSeleccionado;
 
-    // Método para mostrar el menú de selección de idioma
+    /**
+     * Método para mostrar el menú de selección de idioma
+     */
     public static void showMenu() {
         System.out.println("Escoga un idioma (Choose a language): ");
-        System.out.println("A. Español (Spanish)");
-        System.out.println("B. Ingles (English)");
+        System.out.println("Español (Spanish)");
+        System.out.println("Ingles (English)");
         String idiomaSeleccionado = scanner.nextLine();
         Idiomas.getInstance(idiomaSeleccionado); // Instancia el idioma seleccionado
         System.out.println(Idiomas.MENU); // Muestra el menú principal
         libroSeleccionado = scanner.nextLine(); // Captura la selección de libro
     }
 
-    // Método para lanzar la aplicación
+    /**
+     * Método para lanzar la aplicación
+     */
     public static void launchApp() {
         showMenu(); // Muestra el menú inicial
         // Switch para seleccionar el libro y mostrar su título

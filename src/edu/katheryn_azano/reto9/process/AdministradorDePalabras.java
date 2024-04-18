@@ -7,18 +7,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Clase donde se administran las palabras de los cuentos
+ */
 public class AdministradorDePalabras {
     // Mapa que contiene los libros disponibles y sus rutas de archivo
     private static final Map<String, String> librosDisponibles = new HashMap<>();
 
-    // Método para establecer los libros disponibles y mostrar las 10 palabras más repetidas
+    /**
+     * Método para establecer los libros disponibles y mostrar las 10 palabras más repetidas
+     * @param libroSeleccionado
+     */
     public static void setLibrosDisponibles(String libroSeleccionado) {
         // Asigna las rutas de archivo de los libros disponibles al mapa
-        librosDisponibles.put("1", "C:\\Users\\kathe\\IdeaProjects\\untitled\\src\\edu\\katheryn_azano\\reto9\\resources\\ElGansoDeOro.txt");
-        librosDisponibles.put("2", "C:\\Users\\kathe\\IdeaProjects\\untitled\\src\\edu\\katheryn_azano\\reto9\\resources\\ElGatoConBotas.txt");
-        librosDisponibles.put("3", "C:\\Users\\kathe\\IdeaProjects\\untitled\\src\\edu\\katheryn_azano\\reto9\\resources\\LosTresCerditos.txt");
-        librosDisponibles.put("4", "C:\\Users\\kathe\\IdeaProjects\\untitled\\src\\edu\\katheryn_azano\\reto9\\resources\\Pinocho.txt");
-        librosDisponibles.put("5", "C:\\Users\\kathe\\IdeaProjects\\untitled\\src\\edu\\katheryn_azano\\reto9\\resources\\RicitosDeOro.txt");
+        librosDisponibles.put("1", "edu/katheryn_azano/reto9/resources/ElGansoDeOro.txt");
+        librosDisponibles.put("2", "edu/katheryn_azano/reto9/resources/ElGatoConBotas.txt");
+        librosDisponibles.put("3", "edu/katheryn_azano/reto9/resources/LosTresCerditos.txt");
+        librosDisponibles.put("4", "edu/katheryn_azano/reto9/resources/Pinocho.txt");
+        librosDisponibles.put("5", "edu/katheryn_azano/reto9/resources/RicitosDeOro.txt");
 
         // Obtiene la ruta de archivo del libro seleccionado
         String filePath = librosDisponibles.get(libroSeleccionado);
@@ -37,7 +43,11 @@ public class AdministradorDePalabras {
         }
     }
 
-    // Método para contar la frecuencia de las palabras en una lista
+    /**
+     * Método para contar la frecuencia de las palabras en una lista
+     * @param palabras
+     * @return la frecuencia de cada palabra
+     */
     public static Map<String, Integer> contarPalabras(List<String> palabras) {
         Map<String, Integer> frecuencia = new HashMap<>();
         for (String palabra : palabras) {
@@ -46,7 +56,11 @@ public class AdministradorDePalabras {
         return frecuencia;
     }
 
-    // Método para ordenar la frecuencia de palabras de forma descendente
+    /**
+     * Método para ordenar la frecuencia de palabras de forma descendente
+     * @param frecuencia
+     * @return
+     */
     public static List<Map.Entry<String, Integer>> ordenarFrecuencia(Map<String, Integer> frecuencia) {
         List<Map.Entry<String, Integer>> listaOrdenada = new ArrayList<>(frecuencia.entrySet());
         listaOrdenada.sort((a, b) -> b.getValue().compareTo(a.getValue()));
