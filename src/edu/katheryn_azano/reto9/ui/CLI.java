@@ -1,6 +1,6 @@
 package edu.katheryn_azano.reto9.ui;
 
-import edu.katheryn_azano.reto9.process.AdministradorDePalabras;
+import edu.katheryn_azano.reto9.process.Administrador;
 
 import java.util.Scanner;
 
@@ -13,8 +13,8 @@ public class CLI {
      */
     public static void showMenu() {
         System.out.println("Escoga un idioma (Choose a language): ");
-        System.out.println("Español (Spanish)");
-        System.out.println("Ingles (English)");
+        System.out.println("español / spanish");
+        System.out.println("ingles / english");
         String idiomaSeleccionado = scanner.nextLine();
         Idiomas.getInstance(idiomaSeleccionado); // Instancia el idioma seleccionado
         System.out.println(Idiomas.MENU); // Muestra el menú principal
@@ -51,6 +51,6 @@ public class CLI {
             default:
                 System.out.println(Idiomas.ERROR_LIBRO);
         }
-        AdministradorDePalabras.setLibrosDisponibles(libroSeleccionado); // Establece los libros disponibles
+        Administrador.setLibrosDisponibles(libroSeleccionado); // Establece los libros disponibles
     }
 }

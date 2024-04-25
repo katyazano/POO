@@ -6,17 +6,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.*;
 
 /**
  * Clase donde se administran las palabras de los cuentos
  */
-public class AdministradorDePalabras {
+public class Administrador {
     // Mapa que contiene los libros disponibles y sus rutas de archivo
     private static final Map<String, String> librosDisponibles = new HashMap<>();
 
     /**
      * Método para establecer los libros disponibles y mostrar las 10 palabras más repetidas
-     * @param libroSeleccionado
+     * @param libroSeleccionado es de tipo String
      */
     public static void setLibrosDisponibles(String libroSeleccionado) {
         // Asigna las rutas de archivo de los libros disponibles al mapa
@@ -29,12 +30,25 @@ public class AdministradorDePalabras {
         // Obtiene la ruta de archivo del libro seleccionado
         String filePath = librosDisponibles.get(libroSeleccionado);
 
-        // Obtiene la lista de palabras del libro y cuenta la frecuencia de cada una
         List<String> palabras = Limpiador.obtenerPalabras(filePath);
         Map<String, Integer> frecuenciaPalabras = contarPalabras(palabras);
 
-        // Ordena la frecuencia de palabras y muestra las 10 más repetidas
         List<Map.Entry<String, Integer>> listaOrdenada = ordenarFrecuencia(frecuenciaPalabras);
+        imprimirPalabras(listaOrdenada);
+        Filtro.contarVocales(palabras);
+        System.out.println(Idiomas.INICIO_VOCALES);
+        Filtro.imprimirInicioVocales(palabras);
+        System.out.println(Idiomas.IMPARES);
+        Filtro.imprimirImpares(palabras);
+        System.out.println(Idiomas.PALABRA_LARGA);
+        Filtro.palabraLarga(palabras);
+        System.out.println(Idiomas.PALABRA_CORTA);
+        Filtro.palabraCorta(palabras);
+        Filtro.criterioVocales(palabras);
+
+    }
+
+    public static void imprimirPalabras(List<Map.Entry<String, Integer>> listaOrdenada){
         int contador = 0;
         for (Map.Entry<String, Integer> entrada : listaOrdenada) {
             System.out.println(entrada.getKey() + ": " + entrada.getValue() + " " + Idiomas.VECES);
@@ -45,7 +59,7 @@ public class AdministradorDePalabras {
 
     /**
      * Método para contar la frecuencia de las palabras en una lista
-     * @param palabras
+     * @param palabras lista de todas las palabras
      * @return la frecuencia de cada palabra
      */
     public static Map<String, Integer> contarPalabras(List<String> palabras) {
@@ -58,8 +72,8 @@ public class AdministradorDePalabras {
 
     /**
      * Método para ordenar la frecuencia de palabras de forma descendente
-     * @param frecuencia
-     * @return
+     * @param frecuencia Map tipo String con valores de Integer
+     * @return lista de palabras ordenada
      */
     public static List<Map.Entry<String, Integer>> ordenarFrecuencia(Map<String, Integer> frecuencia) {
         List<Map.Entry<String, Integer>> listaOrdenada = new ArrayList<>(frecuencia.entrySet());
