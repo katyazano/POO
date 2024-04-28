@@ -20,16 +20,12 @@ public class Limpiador {
     public static List<String> obtenerPalabras(String filePath) {
         try (Stream<String> lines = Files.lines(Paths.get(filePath))){
             return lines
-                    // Divide cada línea en palabras
                     .flatMap(line -> Stream.of(line.split("\\s+")))
-                    // Elimina caracteres especiales
                     .map(word -> word.replaceAll("[^a-zA-ZñÑáéíóúüÁÉÍÓÚÜ]", ""))
-                    // Filtra las palabras vacías
                     .filter(word -> !word.isEmpty())
-                    // Recolecta las palabras en una lista
                     .collect(Collectors.toList());
         }catch (IOException e){
-            throw new RuntimeException(e);
+                throw new RuntimeException(e);
         }
     }
 }
