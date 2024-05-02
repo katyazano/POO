@@ -1,23 +1,18 @@
 package edu.katheryn_azano.reto9.process;
 
 import edu.katheryn_azano.reto9.ui.Idiomas;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.*;
 
 /**
- * Clase donde se administran las palabras de los cuentos
+ * Clase que administra las palabras de los cuentos y realiza operaciones sobre ellas.
  */
 public class Administrador {
     // Mapa que contiene los libros disponibles y sus rutas de archivo
     private static final Map<String, String> librosDisponibles = new HashMap<>();
 
     /**
-     * Método para establecer los libros disponibles y mostrar las 10 palabras más repetidas
-     * @param libroSeleccionado es de tipo String
+     * Establece los libros disponibles y muestra las 10 palabras más repetidas.
+     * @param libroSeleccionado El libro seleccionado.
      */
     public static void setLibrosDisponibles(String libroSeleccionado) {
         // Asigna las rutas de archivo de los libros disponibles al mapa
@@ -48,6 +43,10 @@ public class Administrador {
 
     }
 
+    /**
+     * Imprime las palabras más repetidas junto con su frecuencia, limitando la lista a las 10 palabras más repetidas.
+     * @param listaOrdenada Lista de palabras ordenadas por frecuencia.
+     */
     public static void imprimirPalabras(List<Map.Entry<String, Integer>> listaOrdenada){
         int contador = 0;
         for (Map.Entry<String, Integer> entrada : listaOrdenada) {
@@ -58,9 +57,9 @@ public class Administrador {
     }
 
     /**
-     * Método para contar la frecuencia de las palabras en una lista
-     * @param palabras lista de todas las palabras
-     * @return la frecuencia de cada palabra
+     * Cuenta la frecuencia de las palabras en una lista.
+     * @param palabras Lista de palabras.
+     * @return Mapa que contiene la frecuencia de cada palabra.
      */
     public static Map<String, Integer> contarPalabras(List<String> palabras) {
         Map<String, Integer> frecuencia = new HashMap<>();
@@ -71,9 +70,9 @@ public class Administrador {
     }
 
     /**
-     * Método para ordenar la frecuencia de palabras de forma descendente
-     * @param frecuencia Map tipo String con valores de Integer
-     * @return lista de palabras ordenada
+     * Ordena la frecuencia de las palabras de forma descendente.
+     * @param frecuencia Mapa que contiene la frecuencia de las palabras.
+     * @return Lista de palabras ordenada por frecuencia.
      */
     public static List<Map.Entry<String, Integer>> ordenarFrecuencia(Map<String, Integer> frecuencia) {
         List<Map.Entry<String, Integer>> listaOrdenada = new ArrayList<>(frecuencia.entrySet());
