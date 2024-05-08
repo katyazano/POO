@@ -2,10 +2,7 @@ package edu.katheryn_azano.evidencia3.process;
 
 import edu.katheryn_azano.evidencia3.ui.Idiomas;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class JuegoGato {
 
@@ -21,6 +18,27 @@ public class JuegoGato {
         this.salonFama = new ArrayList<>();
         this.jugador1 = null;
         this.jugador2 = null;
+    }
+
+    /**
+     * Metodo para generar el turno de manera aleatoria
+     */
+    public void generarTurno(){
+        Tablero tablero = new Tablero();
+        Persona jugador = new Persona("Vanessa", "X");
+        Computadora computadora = new Computadora("O");
+        Random random = new Random();
+        boolean turnoJugador = random.nextBoolean();
+
+        if (turnoJugador) {
+            System.out.println("Comienza " + jugador.getNombre() + " (" + jugador.getSimbolo() + ").");
+            jugador.jugada(tablero);
+        } else {
+            System.out.println("Comienza " + computadora.getNombre() + " (" + computadora.getSimbolo() + ").");
+            computadora.jugada(tablero);
+        }
+
+
     }
 
     public void mostrarTablero() {
