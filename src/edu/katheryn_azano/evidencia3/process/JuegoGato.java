@@ -1,5 +1,6 @@
 package edu.katheryn_azano.evidencia3.process;
 
+import edu.katheryn_azano.evidencia3.data.PuntajesJugador;
 import edu.katheryn_azano.evidencia3.ui.Idiomas;
 
 import java.util.*;
@@ -10,7 +11,7 @@ public class JuegoGato {
     private Jugador jugador1;
     private Jugador jugador2;
     private Idiomas idioma;
-    private List<Puntaje> salonFama;
+    private List<PuntajesJugador> salonFama;
 
     public JuegoGato(Idiomas idioma) {
         this.tablero = new Tablero();
@@ -21,12 +22,33 @@ public class JuegoGato {
     }
 
     /**
-     * Metodo para generar el turno de manera aleatoria
+     * Metodo para generar el turno de manera aleatoria para el modo
+     * Jugador vs Jugador
      */
-    public void generarTurno(){
+    public static void generarTurnoPersona(String nombrejugador1, String nombrejugador2){
         Tablero tablero = new Tablero();
-        Persona jugador = new Persona("Vanessa", "X");
-        Computadora computadora = new Computadora("O");
+        Persona jugador1 = new Persona(nombrejugador1,"X");
+        Persona jugador2 = new Persona(nombrejugador2,"0");
+        Random random = new Random();
+        boolean turnoJugador = random.nextBoolean();
+
+        if (turnoJugador) {
+            System.out.println("Comienza " + jugador1.getNombre() + " (" + jugador1.getSimbolo() + ").");
+            jugador1.jugada(tablero);
+        } else {
+            System.out.println("Comienza " + jugador2.getNombre() + " (" + jugador2.getSimbolo() + ").");
+            jugador2.jugada(tablero);
+        }
+    }
+
+    /**
+     * Metodo para generar el turno de manera aleatoria para el modo
+     * Jugador vs Computadora
+     */
+    public static void generarTurnoComputadora(String nombrejugador){
+        Tablero tablero = new Tablero();
+        Persona jugador = new Persona(nombrejugador,"X");
+        Persona computadora = new Persona("Computadora","0");
         Random random = new Random();
         boolean turnoJugador = random.nextBoolean();
 
@@ -37,9 +59,9 @@ public class JuegoGato {
             System.out.println("Comienza " + computadora.getNombre() + " (" + computadora.getSimbolo() + ").");
             computadora.jugada(tablero);
         }
-
-
     }
+
+
 
     public void mostrarTablero() {
         tablero.mostrarTablero();

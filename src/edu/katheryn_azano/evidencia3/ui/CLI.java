@@ -1,5 +1,7 @@
 package edu.katheryn_azano.evidencia3.ui;
 
+import edu.katheryn_azano.evidencia3.process.JuegoGato;
+
 import java.util.Scanner;
 
 public class CLI {
@@ -19,10 +21,20 @@ public class CLI {
             showMenu();
             switch (choice){
                 case 1:
-                    // llamar metodos para PvP
+                    //Elección para el tipo de juego P VS P
+                    System.out.println("Ingrese el nombre del jugador 1: ");
+                    String jugador1 = scanner.nextLine();
+                    System.out.println("Ingrese el nombre del jugador 2: ");
+                    String jugador2 = scanner.nextLine();
+                    JuegoGato.generarTurnoPersona(jugador1,jugador2);
+
                     break;
                 case 2:
-                    // llamar metodos para PvComp
+                    //Elección para el tipo de juego P VS Comp
+                    System.out.println("Ingrese el nombre del jugador 1: ");
+                    String jugador = scanner.nextLine();
+                    JuegoGato.generarTurnoComputadora(jugador);
+
                     break;
                 default:
                     System.out.println(Idiomas.ERROR_GAMEMODE);

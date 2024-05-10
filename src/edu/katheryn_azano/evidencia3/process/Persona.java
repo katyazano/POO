@@ -12,7 +12,7 @@ class Persona extends Jugador {
     /**
      * Metodo extendido de la clase Jugador, para las jugadas de los dos
      * jugadores (P vs P) o el jugador (P vs Comp) en cada partida
-     * @param tablero
+     * @param tablero nuevo objeto de la clase Tablero
      */
     public void jugada(Tablero tablero){
         // Implementar la lógica de jugada de la persona
