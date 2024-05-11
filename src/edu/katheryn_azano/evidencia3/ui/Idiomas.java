@@ -21,6 +21,9 @@ public class Idiomas {
     public static String JUGADOR_2;
     public static String FINAL;
     public static String FIN_COMPUTADORA;
+    public static String SIMBOLOS;
+    public static String ERROR_SIMBOLO;
+    public static String CONFIRMAR_SIMBOLO;
 
     public static Idiomas getInstance(String idioma) {
         // Obtiene la instancia del idioma según el parámetro recibido
@@ -49,6 +52,9 @@ public class Idiomas {
                 JUGADOR_2 ="Ingrese el nombre del jugador 2: ";
                 FIN_COMPUTADORA = "Presione 'a' para ver el salón de la fama o 'b' para seguir jugando: ";
                 FINAL = "Muchas gracias por jugar! Programa Terminado :)";
+                SIMBOLOS = "X, O, #, *, @, &, $, !, ?, +";
+                ERROR_SIMBOLO = "Opción inválida. Seleccionando símbolo por defecto";
+                CONFIRMAR_SIMBOLO = "Has elegido el simbolo: ";
             break;
             // Inglés
             case Textos.english:
@@ -73,7 +79,10 @@ public class Idiomas {
                 JUGADOR_2 ="Enter the name of player 2: ";
                 FIN_COMPUTADORA = "Press 'a' to see the hall of fame or 'b' to keep playing";
                 FINAL = "Thank you very much for playing! Program Finished :)";
-            break;
+                SIMBOLOS = "X, O, #, *, @, &, $, !, ?, +";
+                ERROR_SIMBOLO = "Invalid option. Selecting default symbol";
+                CONFIRMAR_SIMBOLO = "You chose the symbol: ";
+                break;
 
             default:
                 // Hay una excepción si el idioma no está disponible

@@ -4,10 +4,10 @@ import java.util.Random;
 
 class Computadora extends Jugador {
     static String[] simbolos = {"X", "O", "#", "*", "@", "&", "$", "!", "?", "+"};
-   public Computadora(String simbolo) {
+    public Computadora(String simbolo) {
        //Genera un simbolo random para la computadora en cada partida
         super("Computadora", simbolos[new Random().nextInt(simbolos.length)]);
-   }
+    }
 
     /**
      * Metodo jugada de la computadora para ir vs persona

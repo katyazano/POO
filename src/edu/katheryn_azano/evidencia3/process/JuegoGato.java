@@ -8,6 +8,7 @@ import java.util.*;
 import static edu.katheryn_azano.evidencia3.process.Computadora.simbolos;
 
 public class JuegoGato {
+    public static final String[] simbolos = {"X", "O", "#", "*", "@", "&", "$", "!", "?", "+"};
 
     private Tablero tablero;
     private Persona jugador1;
@@ -83,6 +84,8 @@ public class JuegoGato {
             // Verificar si hay un ganador o si el tablero está lleno
             if (tablero.hayGanador(persona.getSimbolo())) {
                 System.out.println(Idiomas.FELICITACION);
+                persona.sumarVictoria();
+                System.out.println("Se sumó");
                 break;
             } else if (tablero.hayGanador(computadora.getSimbolo())) {
                 System.out.println(Idiomas.COMPUTADORA_GANADORA);

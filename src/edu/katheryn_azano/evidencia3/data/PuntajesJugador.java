@@ -1,11 +1,13 @@
 package edu.katheryn_azano.evidencia3.data;
 
+import edu.katheryn_azano.evidencia3.process.Persona;
+
 public class PuntajesJugador {
     private String nombre;
     private String simbolo;
-    private int puntaje;
+    private String puntaje;
 
-    public PuntajesJugador(String nombre, String simbolo, int puntaje) {
+    public PuntajesJugador(String nombre, String simbolo, String puntaje) {
         this.nombre = nombre;
         this.simbolo = simbolo;
         this.puntaje = puntaje;
@@ -27,19 +29,11 @@ public class PuntajesJugador {
         this.simbolo = simbolo;
     }
 
-    public int getPuntaje() {
+    public String getPuntaje() {
         return puntaje;
     }
 
-    public void setPuntaje(int puntaje) {
+    public void setPuntaje(String puntaje) {
         this.puntaje = puntaje;
-    }
-
-    @Override
-    public String toString() {
-        return "PuntajesJugador" +
-                "nombre:'" + nombre + '\'' +
-                ",simbolo:'" + simbolo + '\'' +
-                ",puntaje:" + puntaje ;
     }
 }

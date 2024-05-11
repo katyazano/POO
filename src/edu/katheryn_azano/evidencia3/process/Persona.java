@@ -6,21 +6,10 @@ import edu.katheryn_azano.evidencia3.ui.Idiomas;
 import java.util.Scanner;
 
 public class Persona extends Jugador {
-    private int victorias;
 
     public Persona(String nombre, String simbolo) {
         super(nombre, simbolo);
-        this.victorias = 0;
     }
-
-    public void sumarVictoria() {
-        this.victorias++;
-    }
-
-    public int getVictorias() {
-        return victorias;
-    }
-
 
     /**
      * Metodo extendido de la clase Jugador, para las jugadas de los dos

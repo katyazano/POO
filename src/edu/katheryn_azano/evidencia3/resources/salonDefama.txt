@@ -1,2 +1,5 @@
-Vanessa,X,8
-Katheryn,O,6
+tonoto,X,1
+asdf,X,1
+el try,#,1
+si,X,0
+katy,O,0

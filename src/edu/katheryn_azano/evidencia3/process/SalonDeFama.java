@@ -10,9 +10,15 @@ public class SalonDeFama {
     private static final int cantEspacios = 5;
     private List<PuntajesJugador> puntajes;
 
-    public SalonDeFama(){
+    public void SalonDeLaFama(PuntajesJugador puntajesJugador){
         puntajes = new ArrayList<>();
         cargarSalonFama();
+        puntajes.add(puntajesJugador);
+        guardarSalonFama();
+        cargarSalonFama();
+        actualizarSalonDeLaFama(puntajesJugador);
+        guardarSalonFama();
+        mostrarSalonDeLaFama();
     }
 
     /**
@@ -23,7 +29,7 @@ public class SalonDeFama {
         try (BufferedReader bw = new BufferedReader(new FileReader("src/edu/katheryn_azano/evidencia3/resources/salonDefama.txt"))){
             puntajes = bw.lines()
                     .map(linea -> linea.split(","))
-                    .map(datos -> new PuntajesJugador(datos[0], datos[1], Integer.parseInt(datos[2])))
+                    .map(datos -> new PuntajesJugador(datos[0], datos[1], datos[2]))
                     .collect(Collectors.toList());
         }catch (IOException e){
             System.out.println("Error al cargar el salón de la fama: " + e.getMessage());
@@ -56,18 +62,16 @@ public class SalonDeFama {
      * además de acomodarlo de manera descendente
      * @param nuevoPuntaje nuevo puntaje record del jugador
      */
-    public void actualizarSalonDeLaFama(PuntajesJugador nuevoPuntaje, int victorias) {
+
+    public void actualizarSalonDeLaFama(PuntajesJugador nuevoPuntaje) {
         puntajes.removeIf(p -> p.equals(nuevoPuntaje));
-        nuevoPuntaje.setPuntaje(victorias); // Actualiza el puntaje con el número de victorias
-        puntajes.add(nuevoPuntaje);
 
         puntajes = puntajes.stream()
                 //metodo para hacer la comparacion de los puntajes y ordenarlos de manera descendente
-                .sorted(Comparator.comparingInt(PuntajesJugador::getPuntaje).reversed())
+                .sorted(Comparator.comparing(PuntajesJugador::getPuntaje).reversed())
                 //se limita al maximo de los espacios
                 .limit(cantEspacios)
                 .collect(Collectors.toList());
-        guardarSalonFama();
     }
 
     /**
@@ -77,7 +81,7 @@ public class SalonDeFama {
     public void mostrarSalonDeLaFama() {
         System.out.println("Salón de la Fama:");
         IntStream.range(0, puntajes.size())
-                .mapToObj(i -> String.format("%d. %s - %s - %d puntos", i + 1, puntajes.get(i).getNombre(),
+                .mapToObj(i -> String.format("%d. %s - %s - %s puntos", i + 1, puntajes.get(i).getNombre(),
                         puntajes.get(i).getSimbolo(), puntajes.get(i).getPuntaje()))
                 .forEach(System.out::println);
     }

@@ -1,5 +1,6 @@
 package edu.katheryn_azano.evidencia3.ui;
 
+import edu.katheryn_azano.evidencia3.data.PuntajesJugador;
 import edu.katheryn_azano.evidencia3.process.JuegoGato;
 import edu.katheryn_azano.evidencia3.process.Jugador;
 import edu.katheryn_azano.evidencia3.process.Persona;
@@ -29,9 +30,11 @@ public class CLI {
             switch (choice){
                 case 1:
                     //Elección para el tipo de juego P VS Comp
+                    SalonDeFama salonDeFama = new SalonDeFama();
+
                     System.out.println(Idiomas.JUGADOR_1);
                     String jugador = scanner.nextLine();
-                    System.out.println(Idiomas.SELECCION_SIMBOLO + Arrays.toString(simbolos));
+                    System.out.println(Idiomas.SELECCION_SIMBOLO + "\n" + Idiomas.SIMBOLOS);
                     String simbolo = scanner.nextLine();
                     Persona persona = new Persona(jugador,simbolo);
 
@@ -41,10 +44,12 @@ public class CLI {
                         // Preguntar si desean volver a jugar
                         System.out.println(Idiomas.FIN_COMPUTADORA);
                         String respuesta = scanner.nextLine();
-                        if (!respuesta.equalsIgnoreCase("b")) {
-                            continuarJugando = false;
+                        if (respuesta.equals ("b")) {
+                            continuarJugando = true;
                         }else{
-                            System.out.println();
+                            PuntajesJugador puntajesJugador = new PuntajesJugador(persona.getNombre(), persona.getSimbolo(), persona.getVictorias());
+                            salonDeFama.SalonDeLaFama(puntajesJugador);
+                            continuarJugando = false;
                         }
                     }
                     break;
@@ -53,11 +58,11 @@ public class CLI {
                     scanner.nextLine();
                     System.out.println(Idiomas.JUGADOR_1);
                     String jugador1 = scanner.nextLine();
-                    System.out.println(Idiomas.SELECCION_SIMBOLO + Arrays.toString(simbolos));
+                    System.out.println(Idiomas.SELECCION_SIMBOLO + "\n" + Idiomas.SIMBOLOS);
                     String simbolo1 = scanner.nextLine();
                     System.out.println(Idiomas.JUGADOR_2);
                     String jugador2 = scanner.nextLine();
-                    System.out.println(Idiomas.SELECCION_SIMBOLO + Arrays.toString(simbolos));
+                    System.out.println(Idiomas.SELECCION_SIMBOLO + "\n" + Idiomas.SIMBOLOS);
                     String simbolo2 = scanner.nextLine();
                     Persona persona1 = new Persona(jugador1, simbolo1);
                     Persona persona2 = new Persona(jugador2, simbolo2);
