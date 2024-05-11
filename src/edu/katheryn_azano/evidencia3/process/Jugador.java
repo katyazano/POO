@@ -1,9 +1,5 @@
 package edu.katheryn_azano.evidencia3.process;
 
-import edu.katheryn_azano.evidencia3.ui.Idiomas;
-
-import java.util.Scanner;
-
 
 public abstract class Jugador {
     private String nombre;
