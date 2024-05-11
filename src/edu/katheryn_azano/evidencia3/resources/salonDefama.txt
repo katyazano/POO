@@ -1,2 +1,2 @@
-Vanessa,♥,8
-Katheryn,★,6
+Vanessa,X,8
+Katheryn,O,6

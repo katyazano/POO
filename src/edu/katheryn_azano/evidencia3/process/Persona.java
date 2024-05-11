@@ -12,18 +12,17 @@ public class Persona extends Jugador {
     /**
      * Metodo extendido de la clase Jugador, para las jugadas de los dos
      * jugadores (P vs P) o el jugador (P vs Comp) en cada partida
-     * @param tablero nuevo objeto de la clase Tablero
+     * @param tablero para las jugadas
      */
     public boolean jugada(Tablero tablero){
-        System.out.println("jugada");
         // Implementar la lógica de jugada de la persona
         Scanner scanner = new Scanner(System.in);
 
         tablero.mostrarTablero();
-        System.out.println("es el turno de: " + this.getNombre());
-        System.out.println("Ingrese la fila deseada (1-3): ");
+        System.out.println(Idiomas.SIGUIENTE_TURNO + this.getNombre());
+        System.out.println(Idiomas.FILA);
         int fila = scanner.nextInt();
-        System.out.println("Ingrese la columna deseada (1-3): ");
+        System.out.println(Idiomas.COLUMNA);
         int columna = scanner.nextInt();
 
             //Para ajustar la columna y la fila ingresada de 1-3 a 0-2
@@ -34,18 +33,18 @@ public class Persona extends Jugador {
             if(tablero.marcarCasilla(fila,columna,this.getSimbolo())){
                 if (tablero.hayGanador(this.getSimbolo())){
                     tablero.mostrarTablero();
-                    System.out.println("Felicidades " + this.getNombre() + ", has ganado esta partida");
+                    System.out.println(Idiomas.FELICITACION + this.getNombre());
                     return false;
                 }else if (tablero.estaLleno()){
                     tablero.mostrarTablero();
-                    System.out.println("¡Juego terminado, es un empate!");
+                    System.out.println(Idiomas.EMPATE);
                     return false;
                 }
             } else {
-                System.out.println("La casilla seleccionada esta ocupada, intente de nuevo");
+                System.out.println(Idiomas.ERROR_POSICION);
             }
         }else {
-            System.out.println("Ingresa una casilla valida (1-3)");
+            System.out.println(Idiomas.ERROR_MOVIMIENTO);
         }
         return true;
     }
