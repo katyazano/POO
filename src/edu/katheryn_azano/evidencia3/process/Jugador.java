@@ -4,7 +4,6 @@ import edu.katheryn_azano.evidencia3.ui.Idiomas;
 
 import java.util.Scanner;
 
-import static edu.katheryn_azano.evidencia3.process.JuegoGato.simbolos;
 
 public abstract class Jugador {
     private String nombre;
@@ -17,21 +16,6 @@ public abstract class Jugador {
         this.victorias = 0;
     }
 
-    private void elegirSimbolo() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(Idiomas.SELECCION_SIMBOLO);
-        for (int i = 0; i < simbolos.length; i++) {
-            System.out.println((i + 1) + ". " + simbolos[i]);
-        }
-        int opcion = scanner.nextInt();
-        if (opcion >= 1 && opcion <= simbolos.length) {
-            this.simbolo = simbolos[opcion - 1];
-        } else {
-            System.out.println(Idiomas.ERROR_SIMBOLO);
-            this.simbolo = simbolos[0];
-        }
-        System.out.println(Idiomas.CONFIRMAR_SIMBOLO + this.simbolo);
-    }
 
     public String getSimbolo() {
         return simbolo;

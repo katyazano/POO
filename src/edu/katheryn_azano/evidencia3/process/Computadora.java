@@ -4,6 +4,10 @@ import java.util.Random;
 
 class Computadora extends Jugador {
     static String[] simbolos = {"X", "O", "#", "*", "@", "&", "$", "!", "?", "+"};
+
+    /**
+     * Constructor
+     */
     public Computadora(String simbolo) {
        //Genera un simbolo random para la computadora en cada partida
         super("Computadora", simbolos[new Random().nextInt(simbolos.length)]);
@@ -30,6 +34,14 @@ class Computadora extends Jugador {
     }
 
 
+    /**
+     * Metodo para que en caso de que solo le falte un simbolo para
+     * ganar, se enfoque de colocarlo ahi en caso de que no fuer bloqueado
+     * por el jugador o en su turno solo falta esa casilla de maracar
+     * @param tablero isntancia del tablero
+     * @param simbolo de la computadora
+     * @return true para realizar la jugada ganadora
+     */
     private boolean realizarJugadaGanadora(Tablero tablero, String simbolo) {
         // Buscar una jugada ganadora
         for (int fila = 0; fila < tablero.getFilas(); fila++) {
@@ -69,6 +81,12 @@ class Computadora extends Jugador {
         return false;
     }
 
+    /**
+     *  Metodo para realizar una jugada aleatoria solo en una casilla vacia, sin necesidad
+     *  de ir por ganar
+     * @param tablero instancia del tablero
+     * @return true para el movimiento
+     */
     private boolean realizarJugadaAleatoria(Tablero tablero) {
         // Realizar una jugada aleatoria en una casilla vacía
         int fila, columna;
@@ -83,10 +101,17 @@ class Computadora extends Jugador {
         return true;
     }
 
+    /**
+     * Metodo para que la computadora obtenga el simbolo contrario
+     * y no juege con el mismo
+     * @return simbolo del jugador
+     */
     private String getSimboloContrario() {
         // Obtener el símbolo contrario al de la computadora
         String simboloComputadora = getSimbolo();
         for (String simbolo : simbolos) {
+            //verifica que en la lista de simbolos no salgan dos repetidos
+            //(el del humano y la computadora)
             if (!simbolo.equals(simboloComputadora)) {
                 return simbolo;
             }

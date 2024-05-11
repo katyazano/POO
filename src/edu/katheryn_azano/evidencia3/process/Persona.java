@@ -7,6 +7,11 @@ import java.util.Scanner;
 
 public class Persona extends Jugador {
 
+    /**
+     * Constructor
+     * @param nombre de la persona
+     * @param simbolo de la persona
+     */
     public Persona(String nombre, String simbolo) {
         super(nombre, simbolo);
     }
@@ -15,6 +20,7 @@ public class Persona extends Jugador {
      * Metodo extendido de la clase Jugador, para las jugadas de los dos
      * jugadores (P vs P) o el jugador (P vs Comp) en cada partida
      * @param tablero para las jugadas
+     * @return movimiento del jugador
      */
     public boolean jugada(Tablero tablero){
         // Implementar la lógica de jugada de la persona

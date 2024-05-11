@@ -25,6 +25,8 @@ public class JuegoGato {
     /**
      * Metodo para generar el turno de manera aleatoria para el modo
      * Jugador vs Jugador
+     * @param jugador1 nombre y simbolo ingresado por usuario
+     * @param jugador2 nombre y simbolo ingresado por usuario
      */
     public static void generarTurnoPersona(Jugador jugador1, Jugador jugador2){
         Tablero tablero = new Tablero();
@@ -49,6 +51,8 @@ public class JuegoGato {
     /**
      * Metodo para generar el turno de manera aleatoria para el modo
      * Jugador vs Computadora
+     * @param persona instancia de Jugador con el nombre y simbolo ingresado
+     * por usuario
      */
     public static void generarTurnoComputadora(Jugador persona){
         Tablero tablero = new Tablero();

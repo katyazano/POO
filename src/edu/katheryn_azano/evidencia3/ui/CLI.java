@@ -6,15 +6,18 @@ import edu.katheryn_azano.evidencia3.process.Jugador;
 import edu.katheryn_azano.evidencia3.process.Persona;
 import edu.katheryn_azano.evidencia3.process.SalonDeFama;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class CLI {
     private static final Scanner scanner = new Scanner(System.in);
     private static int choice;
-    private static String[] simbolos = {"X", "O", "#", "*", "@", "&", "$", "!", "?", "+"};
+    private static String[] simbolosPermitidos = {"X", "O", "#", "*", "@", "&", "$", "!", "?", "+"};
     private static boolean continuarJugando = true;
 
+    /**
+     * Metodo donde muestra los dos menus, el de eleccion de idiomas
+     * y el de metodo de juego (P VS P) (P VS COMP)
+     */
     public static void showMenu(){
         System.out.println("Seleccione un idioma / Choose a language: \nespañol / english");
         String idiomaSeleccionado = scanner.nextLine();
@@ -24,6 +27,9 @@ public class CLI {
         scanner.nextLine();
     }
 
+    /**
+     * Metodo para iniciar la aplicacion/juego del gato
+     */
     public static void launchApp(){
         showMenu();
         while (choice != 0) {

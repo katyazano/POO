@@ -55,7 +55,7 @@ public class Idiomas {
                 SIMBOLOS = "X, O, #, *, @, &, $, !, ?, +";
                 ERROR_SIMBOLO = "Opción inválida. Seleccionando símbolo por defecto";
                 CONFIRMAR_SIMBOLO = "Has elegido el simbolo: ";
-            break;
+                break;
             // Inglés
             case Textos.english:
                 // Textos en inglés

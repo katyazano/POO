@@ -1,5 +1,5 @@
 tonoto,X,1
 asdf,X,1
 el try,#,1
+Vane,X,1
 si,X,0
-katy,O,0
