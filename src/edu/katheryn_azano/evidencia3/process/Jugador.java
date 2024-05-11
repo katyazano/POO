@@ -35,6 +35,7 @@ public abstract class Jugador {
         this.victorias++;
     }
 
-    public void jugada(Tablero tablero){
+    public boolean jugada(Tablero tablero){
+        return true;
     }
 }

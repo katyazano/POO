@@ -31,7 +31,16 @@ class Tablero {
     }
 
     public boolean hayGanador(String simbolo) {
-        // Implementar la lógica para verificar si hay un ganador
+        for (int i = 0; i < 3; i++) {
+            if (casillas[0][i] == simbolo && casillas[1][i] == simbolo && casillas[2][i] == simbolo) {
+                // por implementar
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (casillas[i][0] == simbolo && casillas[i][1] == simbolo && casillas[i][2] == simbolo) {
+                // por implementar
+            }
+        }
         return false;
     }
 

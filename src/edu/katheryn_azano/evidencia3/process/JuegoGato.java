@@ -8,8 +8,8 @@ import java.util.*;
 public class JuegoGato {
 
     private Tablero tablero;
-    private Jugador jugador1;
-    private Jugador jugador2;
+    private Persona jugador1;
+    private Persona jugador2;
     private Idiomas idioma;
     private List<PuntajesJugador> salonFama;
 
@@ -25,19 +25,23 @@ public class JuegoGato {
      * Metodo para generar el turno de manera aleatoria para el modo
      * Jugador vs Jugador
      */
-    public static void generarTurnoPersona(String nombrejugador1, String nombrejugador2){
+    public static void generarTurnoPersona(Jugador jugador1, Jugador jugador2){
         Tablero tablero = new Tablero();
-        Persona jugador1 = new Persona(nombrejugador1,"X");
-        Persona jugador2 = new Persona(nombrejugador2,"0");
         Random random = new Random();
         boolean turnoJugador = random.nextBoolean();
-
-        if (turnoJugador) {
-            System.out.println("Comienza " + jugador1.getNombre() + " (" + jugador1.getSimbolo() + ").");
-            jugador1.jugada(tablero);
-        } else {
-            System.out.println("Comienza " + jugador2.getNombre() + " (" + jugador2.getSimbolo() + ").");
-            jugador2.jugada(tablero);
+        boolean inGame = true;
+        while (inGame) {
+            if (turnoJugador) {
+                System.out.println("Comienza " + jugador1.getNombre() + " (" + jugador1.getSimbolo() + ").");
+                inGame = jugador1.jugada(tablero);
+                System.out.println("termina turno");
+                turnoJugador = false;
+            } else {
+                System.out.println("Comienza " + jugador2.getNombre() + " (" + jugador2.getSimbolo() + ").");
+                inGame = jugador2.jugada(tablero);
+                System.out.println("termina turno");
+                turnoJugador = true;
+            }
         }
     }
 
@@ -61,143 +65,4 @@ public class JuegoGato {
         }
     }
 
-
-
-    public void mostrarTablero() {
-        tablero.mostrarTablero();
-    }
-
-    public void mostrarSalonFama() {
-        if (salonFama.isEmpty()) {
-            System.out.println(idioma.getSalonFamaVacio());
-        } else {
-            System.out.println(idioma.getSalonFamaTitulo());
-            for (int i = 0; i < salonFama.size() && i < 5; i++) {
-                Puntaje puntaje = salonFama.get(i);
-                System.out.println((i + 1) + ". " + puntaje.getNombre() + " (" + puntaje.getSimbolo() + "): " + puntaje.getPuntaje());
-            }
-        }
-    }
-
-    public void sumarPuntos(Jugador jugador) {
-        jugador.sumarVictoria();
-    }
-
-    public void crearSalonFama() {
-        // Implementar la lógica para crear el salón de la fama (lectura de archivo, base de datos, etc.)
-    }
-
-    public void iniciarJuego() {
-        elegirIdioma();
-        elegirModoJuego();
-        iniciarPartida();
-        jugarPartida();
-        mostrarResultadosFinales();
-    }
-
-    private void elegirIdioma() {
-        System.out.println(idioma.getElegirIdioma());
-        int opcionIdioma = new Scanner(System.in).nextInt();
-        if (opcionIdioma == 1) {
-            idioma.setLocale(Locale.ENGLISH);
-        } else if (opcionIdioma == 2) {
-            idioma.setLocale(Locale.SPANISH);
-        } else {
-            System.out.println(idioma.getOpcionInvalida());
-            elegirIdioma();
-        }
-    }
-
-    private void elegirModoJuego() {
-        System.out.println(idioma.getElegirModoJuego());
-        int opcionModoJuego = new Scanner(System.in).nextInt();
-        if (opcionModoJuego == 1) {
-            jugador1 = crearJugadorPersona();
-            jugador2 = new Computadora(elegirSimbolo());
-        } else if (opcionModoJuego == 2) {
-            jugador1 = crearJugadorPersona();
-            jugador2 = crearJugadorPersona();
-        } else {
-            System.out.println(idioma.getOpcionInvalida());
-            elegirModoJuego();
-        }
-    }
-
-    private Jugador crearJugadorPersona() {
-        System.out.println(idioma.getIngresarNombre());
-        String nombre = new Scanner(System.in).nextLine();
-        String simbolo = elegirSimbolo();
-        return new Persona(nombre, simbolo);
-    }
-
-    private String elegirSimbolo() {
-        List<String> simbolosDisponibles = new ArrayList<>();
-        simbolosDisponibles.add("X");
-        simbolosDisponibles.add("O");
-        simbolosDisponibles.add("♥");
-        simbolosDisponibles.add("♦");
-        simbolosDisponibles.add("♣");
-        simbolosDisponibles.add("♠");
-        simbolosDisponibles.add("★");
-        simbolosDisponibles.add("☮");
-        simbolosDisponibles.add("☯");
-
-        System.out.println(idioma.getElegirSimbolo());
-        for (int i = 0; i < simbolosDisponibles.size(); i++) {
-            System.out.print(simbolosDisponibles.get(i) + " ");
-        }
-        System.out.println();
-
-        String simboloElegido = new Scanner(System.in).nextLine().toUpperCase();
-        while (!simbolosDisponibles.contains(simboloElegido)) {
-            System.out.println(idioma.getSimboloInvalido());
-            System.out.println(idioma.getElegirSimbolo());
-            for (int i = 0; i < simbolosDisponibles.size(); i++) {
-                System.out.print(simbolosDisponibles.get(i) + " ");
-            }
-            System.out.println();
-            simboloElegido = new Scanner(System.in).nextLine().toUpperCase();
-        }
-        return simboloElegido;
-    }
-
-    private void iniciarPartida() {
-        int turno = (int) (Math.random() * 2) + 1;
-        if (turno == 1) {
-            System.out.println(idioma.getTurno(jugador1.getNombre()));
-        } else {
-            System.out.println(idioma.getTurno(jugador2.getNombre()));
-        }
-    }
-
-    private void jugarPartida() {
-        boolean terminarPartida = false;
-        while (!terminarPartida) {
-            mostrarTablero();
-
-            if (turno == 1) {
-                jugador1.jugar(tablero);
-            } else {
-                jugador2.jugar(tablero);
-            }
-
-            if (tablero.hayGanador(jugador1.getSimbolo())) {
-                mostrarTablero();
-                System.out.println(idioma.getGanador(jugador1.getNombre()));
-                sumarPuntos(jugador1);
-                terminarPartida = true;
-            } else if (tablero.hayGanador(jugador2.getSimbolo())) {
-                mostrarTablero();
-                System.out.println(idioma.getGanador(jugador2.getNombre()));
-                sumarPuntos(jugador2);
-                terminarPartida = true;
-            } else if (tablero.estaLleno()) {
-                mostrarTablero();
-                System.out.println(idioma.getEmpate());
-                terminarPartida = true;
-            }
-
-            turno = (turno == 1) ? 2 : 1;
-        }
-    }
 }

@@ -13,7 +13,7 @@ public class Idiomas {
         Textos opcion = Textos.valueOf(idioma);
         switch (opcion) {
             // Español
-            case Textos.español, spanish:
+            case Textos.español:
                 // Textos en español
                 MENU = "Elige tu modo de juego: \n1. P vs P \n2. P vs Comp. \n0. Salir";
                 ERROR_GAMEMODE = "Modo de juego no disponible";
@@ -23,7 +23,7 @@ public class Idiomas {
                 ERROR_POSICION = "La casilla está ocupada. Intente nuevamente.";
             break;
             // Inglés
-            case Textos.ingles, english:
+            case Textos.english:
                 // Textos en inglés
                 MENU = "Choose your game mode: \n1. P vs P \n2. P vs Comp. \n0. Exit ";
                 ERROR_GAMEMODE = "The game mode is not available";
@@ -42,5 +42,5 @@ public class Idiomas {
 }
 
 enum Textos {
-    español, spanish, ingles, english
+    español, english
 }
