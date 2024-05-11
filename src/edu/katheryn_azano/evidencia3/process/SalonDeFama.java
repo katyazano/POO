@@ -20,7 +20,7 @@ public class SalonDeFama {
      * puntajes
      */
     public void cargarSalonFama(){
-        try (BufferedReader bw = new BufferedReader(new FileReader("src/edu/katheryn_azano/reto9/resources/salonDefama.txt"))){
+        try (BufferedReader bw = new BufferedReader(new FileReader("src/edu/katheryn_azano/evidencia3/resources/salonDefama.txt"))){
             puntajes = bw.lines()
                     .map(linea -> linea.split(","))
                     .map(datos -> new PuntajesJugador(datos[0], datos[1], Integer.parseInt(datos[2])))
@@ -35,7 +35,7 @@ public class SalonDeFama {
      * de manera que cuando se reinicie el programa no se pierdan los lugares
      */
     public void guardarSalonFama() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/edu/katheryn_azano/reto9/resources/salonDefama.txt"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/edu/katheryn_azano/evidencia3/resources/salonDefama.txt"))) {
             puntajes.stream()
                     .map(puntaje -> puntaje.getNombre() + "," + puntaje.getSimbolo() + "," + puntaje.getPuntaje())
                     .forEach(linea -> {
@@ -53,11 +53,12 @@ public class SalonDeFama {
 
     /**
      * Metodo para actualizar el salon de la fama con nuevos puntajes y compararlos
-     * ademas de acomodarlo de manera descendente
+     * además de acomodarlo de manera descendente
      * @param nuevoPuntaje nuevo puntaje record del jugador
      */
-    public void actualizarSalonDeLaFama(PuntajesJugador nuevoPuntaje) {
+    public void actualizarSalonDeLaFama(PuntajesJugador nuevoPuntaje, int victorias) {
         puntajes.removeIf(p -> p.equals(nuevoPuntaje));
+        nuevoPuntaje.setPuntaje(victorias); // Actualiza el puntaje con el número de victorias
         puntajes.add(nuevoPuntaje);
 
         puntajes = puntajes.stream()
@@ -66,7 +67,6 @@ public class SalonDeFama {
                 //se limita al maximo de los espacios
                 .limit(cantEspacios)
                 .collect(Collectors.toList());
-
         guardarSalonFama();
     }
 

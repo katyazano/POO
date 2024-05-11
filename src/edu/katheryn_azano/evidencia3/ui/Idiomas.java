@@ -20,18 +20,16 @@ public class Idiomas {
     public static String JUGADOR_1;
     public static String JUGADOR_2;
     public static String FINAL;
+    public static String FIN_COMPUTADORA;
 
-
-
-
-    public static edu.katheryn_azano.reto9.ui.Idiomas getInstance(String idioma) {
+    public static Idiomas getInstance(String idioma) {
         // Obtiene la instancia del idioma según el parámetro recibido
         Textos opcion = Textos.valueOf(idioma);
         switch (opcion) {
             // Español
             case Textos.español:
                 // Textos en español
-                MENU = "Elige tu modo de juego: \n1. P vs P \n2. P vs Comp. \n0. Salir";
+                MENU = "Elige tu modo de juego: \n1. P vs Computadora \n2. P vs P \n0. Salir";
                 ERROR_GAMEMODE = "Modo de juego no disponible";
                 SELECCION_SIMBOLO = "Seleccione el simbolo con el que quieres jugar: ";
                 FILA = "Ingrese la fila deseada (1-3): ";
@@ -49,12 +47,13 @@ public class Idiomas {
                 SIGUIENTE_TURNO = "Es el turno de: ";
                 JUGADOR_1 ="Ingrese el nombre del jugador 1: ";
                 JUGADOR_2 ="Ingrese el nombre del jugador 2: ";
+                FIN_COMPUTADORA = "Presione 'a' para ver el salón de la fama o 'b' para seguir jugando: ";
                 FINAL = "Muchas gracias por jugar! Programa Terminado :)";
             break;
             // Inglés
             case Textos.english:
                 // Textos en inglés
-                MENU = "Choose your game mode: \n1. P vs P \n2. P vs Comp. \n0. Exit ";
+                MENU = "Choose your game mode: \n1. P vs Computer \n2. P vs P \n0. Exit ";
                 ERROR_GAMEMODE = "The game mode is not available";
                 SELECCION_SIMBOLO = "Choose the symbol you want to play with: ";
                 FILA = "Enter the desired row (1-3):";
@@ -72,6 +71,7 @@ public class Idiomas {
                 SIGUIENTE_TURNO = "it's the turn of: ";
                 JUGADOR_1 ="Enter the name of player 1: ";
                 JUGADOR_2 ="Enter the name of player 2: ";
+                FIN_COMPUTADORA = "Press 'a' to see the hall of fame or 'b' to keep playing";
                 FINAL = "Thank you very much for playing! Program Finished :)";
             break;
 

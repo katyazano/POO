@@ -3,6 +3,7 @@ package edu.katheryn_azano.evidencia3.ui;
 import edu.katheryn_azano.evidencia3.process.JuegoGato;
 import edu.katheryn_azano.evidencia3.process.Jugador;
 import edu.katheryn_azano.evidencia3.process.Persona;
+import edu.katheryn_azano.evidencia3.process.SalonDeFama;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -27,6 +28,27 @@ public class CLI {
         while (choice != 0) {
             switch (choice){
                 case 1:
+                    //Elección para el tipo de juego P VS Comp
+                    System.out.println(Idiomas.JUGADOR_1);
+                    String jugador = scanner.nextLine();
+                    System.out.println(Idiomas.SELECCION_SIMBOLO + Arrays.toString(simbolos));
+                    String simbolo = scanner.nextLine();
+                    Persona persona = new Persona(jugador,simbolo);
+
+                    while (continuarJugando) {
+                        // Generar turno para la computadora o jugador
+                        JuegoGato.generarTurnoComputadora(persona);
+                        // Preguntar si desean volver a jugar
+                        System.out.println(Idiomas.FIN_COMPUTADORA);
+                        String respuesta = scanner.nextLine();
+                        if (!respuesta.equalsIgnoreCase("b")) {
+                            continuarJugando = false;
+                        }else{
+                            System.out.println();
+                        }
+                    }
+                    break;
+                case 2:
                     //Elección para el tipo de juego P VS P
                     scanner.nextLine();
                     System.out.println(Idiomas.JUGADOR_1);
@@ -50,26 +72,7 @@ public class CLI {
                         }
                     }
                     break;
-                case 2:
-                    //Elección para el tipo de juego P VS Comp
-                    System.out.println(Idiomas.JUGADOR_1);
-                    String jugador = scanner.nextLine();
-                    System.out.println(Idiomas.SELECCION_SIMBOLO + Arrays.toString(simbolos));
-                    String simbolo = scanner.nextLine();
-                    Persona persona = new Persona(jugador,simbolo);
 
-                    while (continuarJugando) {
-                        // Generar turno para la computadora o jugador
-                        JuegoGato.generarTurnoComputadora(persona);
-                        // Preguntar si desean volver a jugar
-                        System.out.println(Idiomas.VOLVER_JUGAR);
-                        String respuesta = scanner.nextLine();
-                        if (!respuesta.equalsIgnoreCase("s")&&!respuesta.equalsIgnoreCase("y")) {
-                            continuarJugando = false;
-                        }
-
-                    }
-                    break;
                 default:
                     System.out.println(Idiomas.ERROR_GAMEMODE);
             }

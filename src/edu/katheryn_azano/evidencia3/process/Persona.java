@@ -1,13 +1,26 @@
 package edu.katheryn_azano.evidencia3.process;
 
+import edu.katheryn_azano.evidencia3.data.PuntajesJugador;
 import edu.katheryn_azano.evidencia3.ui.Idiomas;
 
 import java.util.Scanner;
 
 public class Persona extends Jugador {
+    private int victorias;
+
     public Persona(String nombre, String simbolo) {
         super(nombre, simbolo);
+        this.victorias = 0;
     }
+
+    public void sumarVictoria() {
+        this.victorias++;
+    }
+
+    public int getVictorias() {
+        return victorias;
+    }
+
 
     /**
      * Metodo extendido de la clase Jugador, para las jugadas de los dos
@@ -25,7 +38,7 @@ public class Persona extends Jugador {
         System.out.println(Idiomas.COLUMNA);
         int columna = scanner.nextInt();
 
-            //Para ajustar la columna y la fila ingresada de 1-3 a 0-2
+        //Para ajustar la columna y la fila ingresada de 1-3 a 0-2
         fila--;
         columna--;
 
@@ -33,6 +46,7 @@ public class Persona extends Jugador {
             if(tablero.marcarCasilla(fila,columna,this.getSimbolo())){
                 if (tablero.hayGanador(this.getSimbolo())){
                     tablero.mostrarTablero();
+                    sumarVictoria();
                     System.out.println(Idiomas.FELICITACION + this.getNombre());
                     return false;
                 }else if (tablero.estaLleno()){
